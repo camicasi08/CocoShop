@@ -1,0 +1,178 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 shape-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+        <div class="container pt-lg-md">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+            <div class="card bg-secondary shadow border-0" *ngIf="product">
+                <div class="card-header bg-white pb-5">
+                    <div class="pt-4 text-center">
+                        <h3 class="title">
+                            <span class="d-block mb-1 text-primary text-uppercase">
+                                    {{product._id == undefined ? "Nuevo Producto" : "Editar Producto"}}
+                            </span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="card-body px-lg-5 py-lg-5">
+                
+                <form role="form" (ngSubmit)="save()" >
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                        <label>Nombre del Producto</label>
+                        <div class="input-group input-group-alternative">
+                            <input class="form-control"
+                                id="title"
+                                name="title"
+                                placeholder="Nombre del Producto"
+                                type="text" 
+                                (focus)="focus=true"
+                                (blur)="focus=false"
+                                [(ngModel)]= "product.title"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                        <label>Descripción</label>
+                        <div class="input-group input-group-alternative">
+                            <textarea class="form-control"
+                                id="description"
+                                name="description"
+                                placeholder="Descripción"
+                                [(ngModel)]= "product.description"
+                                > </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                            <label>Cantidad</label>
+                            <div class="input-group input-group-alternative">
+                                <input class="form-control"
+                                    id="quantity"
+                                    name="quantity"
+                                    placeholder="Cantidad"
+                                    type="number"
+                                    (focus)="focus=true" 
+                                    (blur)="focus=false"
+                                    min="1"
+                                    [(ngModel)]= "product.quantity"
+                                    >
+                            </div>
+                        </div>
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                        <label>Precio</label>
+                        <div class="input-group input-group-alternative">
+                            <input class="form-control"
+                                id="price"
+                                name="price"
+                                placeholder="Precio"
+                                type="number"
+                                (focus)="focus=true" 
+                                (blur)="focus=false"
+                                min="0"
+                                [(ngModel)]= "product.price"
+                                >
+                        </div>
+                    </div>
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                        <label>Imagen:</label>
+                        <div class="input-group input-group-alternative">
+                                
+                                <!-- <input type="file" name="image" id="image" accept="image/*"
+                                       class="form-control" (change)="onFileSelected($event)"> -->
+                            <input type="file" name="image" id="image" accept="image/*"
+                            class="form-control">
+
+                        </div>
+                    </div>
+                    <h5>Descuentos</h5>
+                    <button class="btn btn-success" type="button" (click)="addDiscount()">Añadir descuento</button>
+                    <div *ngFor="let discount of discounts ;let idx = index">
+                        <hr>
+                        <div class="form-group mb-3">
+                            <label>Inicio de Descuento</label>
+                            <div class="input-group input-group-alternative">
+                                <input class="form-control datepicker" 
+                                    placeholder="Inicio de descuento" 
+                                    [name]="'dp1_' + idx"
+                                  
+                                    [(ngModel)]="discounts[idx].start" 
+                                    ngbDatepicker 
+                                    #d1="ngbDatepicker" 
+                                    (click)="d1.toggle()" 
+                                    (focus)="focus2=true" 
+                                    (blur)="focus2=false" 
+                                    type="text" 
+                                    (select)="onDateSelection($event)" 
+                                    autocomplete="off"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Fin de Descuento</label>
+                            <div class="input-group input-group-alternative">
+                                <input class="form-control datepicker" 
+                                    placeholder="Fin de descuento" 
+                                    [name]="'dp2_' + idx"
+                                    [(ngModel)]="discounts[idx].end" 
+                                    ngbDatepicker 
+                                    #d2="ngbDatepicker" 
+                                    (click)="d2.toggle()" 
+                                    (focus)="focus2=true" 
+                                    (blur)="focus2=false" 
+                                    type="text" 
+                                    (select)="onDateSelection($event)" 
+                                    autocomplete="off"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                                <label>Porcentaje</label>
+                                <div class="input-group input-group-alternative">
+                                    <input class="form-control"
+                                        id="'discount_' + idx"
+                                        [name]="'discount_' + idx"
+                                        placeholder="Porcentaje"
+                                        type="number"
+                                        min="0"
+                                        max="100"
+                                        [(ngModel)]= "discounts[idx].discount" 
+                                    >
+                                </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                            <div class="input-group input-group-alternative">
+                            </div>
+                    </div>
+                  
+
+                   
+                  
+               
+                  
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-lg my-4">{{product._id == undefined ? "Crear" : "Actualizar"}}</button>
+                        <button type="button" class="btn btn-danger btn-lg my-4" (click)="deleteProduct()">Eliminar</button>
+                        <button type="button" class="btn btn-info btn-lg my-4" (click)="navigateBack()">Cancelar</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+           
+            </div>
+        </div>
+        </div>
+    </section>
+</main>
+      

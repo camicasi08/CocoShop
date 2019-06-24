@@ -35,6 +35,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+angular_src/node_modules/
 
 # TypeScript v1 declaration files
 typings/
@@ -59,3 +60,23 @@ typings/
 
 # next.js build output
 .next
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+angular_src/dist
+angular_src/tmp
+angular_src/out-tsc
+angular_src/docs

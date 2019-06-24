@@ -1,0 +1,67 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 shape-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+        <div class="container pt-lg-md">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+            <div class="card bg-secondary shadow border-0" *ngIf="product">
+                <div class="card-header bg-white pb-5">
+                    <div class="pt-4 text-center">
+                        <h3 class="title">
+                            <span class="d-block mb-1 text-primary text-uppercase">
+                                    {{product.title}}
+                            </span>
+                            <img src="./assets/img/theme/descarga.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+                            <div class="pt-4 text-center">
+                                <h5>${{product.price}}</h5>
+                            
+                                <small name="description" class="h6 text-muted description">{{product.description}}</small>
+                            </div>
+                            
+                        </h3>
+                        
+                    </div>
+                    <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                        <label>Cantidad</label>
+                        <div class="input-group input-group-alternative">
+                            <input class="form-control"
+                                id="quantity"
+                                name="quantity"
+                                placeholder="Cantidad"
+                                type="number"
+                                (focus)="focus=true" 
+                                (blur)="focus=false"
+                                min="1"
+                                max="{{product.quantity}}"
+                                [(ngModel)]= "quantity"
+                                >
+                        </div>
+                    </div>
+                    <div>
+                        
+                        <button type="button" class="btn btn-success btn-circle btn-lg my-4" (click)="addCart()">
+                            <span class="btn-inner--icon"><i class="fa fa-cart-plus"></i></span>
+                            <span class="btn-inner--text"> Añadir al carrito</span>
+                        </button>
+                        
+                        <button type="button" class="btn btn-warning btn-lg my-4" (click)="navigateBack()">Cancelar</button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            </div>
+        </div>
+        </div>
+    </section>
+</main>
+          
