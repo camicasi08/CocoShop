@@ -12,7 +12,7 @@ Antes de ejecutar la aplicación asegurese de instalar [Nodejs](https://nodejs.o
 
 Después de instalado Mongo en el equipo, es necesario crear una base de datos inicial con el nombre de **cocoshop**
 
-####Módulos
+#### Módulos
 Instalar los módulos necesarios para ejecutar el api
 
 `$npm install `
@@ -25,7 +25,7 @@ Acceder a la  carpeta donde se encuentra alojado el Front-End
 Abrir dos consolas una en la raíz del proyecto y otra dentro de la carpeta del Front-End, en ambas ejecutar:
 `$npm start`
 
-####Módulos
+#### Navegación
 
 - Página Princial['/']: Presenta los productos que se encuentran en la base de datos con la información correspondiente.
 
