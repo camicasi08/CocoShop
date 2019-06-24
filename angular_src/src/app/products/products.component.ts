@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit {
                     { "data": "price" },
                     {"data": "quantity"},
                     { "data": "Command", render: function(data, type, row){
-                        console.log(row);
+                       // console.log(row);
                        
                         let result = '<a href="/admin/products/edit/'+row._id+'">'+'<button class="btn btn-sm btn-info">Editar</button></a>';
                         //result += '<a><button class="btn btn-sm btn-danger">Eliminar</button></a>' ;

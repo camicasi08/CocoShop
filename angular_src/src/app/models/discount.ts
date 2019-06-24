@@ -1,7 +1,7 @@
 import { ModelInterface} from './index';
 
 export class Discount implements ModelInterface {
-    start: string;
-    end: string;
+    start: any;
+    end: any;
     discount: number
 }
