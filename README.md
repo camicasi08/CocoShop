@@ -25,6 +25,8 @@ Acceder a la  carpeta donde se encuentra alojado el Front-End
 Abrir dos consolas una en la raíz del proyecto y otra dentro de la carpeta del Front-End, en ambas ejecutar:
 `$npm start`
 
+El api estará corriendo en el puerto 3000, el [Front-End](http://localhost:4200 "Front-End")en el puerto 4200 
+
 #### Navegación
 
 - Página Princial['/']: Presenta los productos que se encuentran en la base de datos con la información correspondiente.
