@@ -2,7 +2,7 @@
 
 Es una tienda en línea para la venta de productos a base de coco.
 
-##Getting Started
+## Getting Started
 
 #### Prerequisitios
 Antes de ejecutar la aplicación asegurese de instalar [Nodejs](https://nodejs.org/es/download/ "Nodejs") version 10+. Posteriormente es necesario instalar MongoDB como motor de base de datos.
